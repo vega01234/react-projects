@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Square from "./components/Square";
-import confetti from "canvas-confetti"
+import confetti from "canvas-confetti";
 
 const turns = {
   X: "❌",
