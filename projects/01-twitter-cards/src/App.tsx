@@ -1,12 +1,35 @@
 import './App.css'
 import { TwitterCard } from './components/TwitterCard'
 
+const users = [ 
+  {
+    username: 'midudev',
+    name: 'Miguel Angel Duran',
+    isFollowing: true
+  },
+  {
+    username: 'devcaress',
+    name: 'DevCaress',
+    isFollowing: true
+  },
+  {
+    username: 'elonmusk',
+    name: 'Elon Musk',
+    isFollowing: false
+  }
+]
+
 function App() {
   return (
     <>
-      <TwitterCard username='midudev' isFollowing >Miguel Angel Duran</TwitterCard>
-      <TwitterCard username='DevCaress' isFollowing >DevCaress</TwitterCard>
-      <TwitterCard username='spacex' isFollowing={false} >Space X</TwitterCard>
+      {
+        users.map(user => {
+          const { username, name, isFollowing } = user;
+          return (
+            <TwitterCard key={username} username={username} initialIsFollowing={isFollowing}>{name}</TwitterCard>
+          );
+        })
+      }
     </>
   )
 }

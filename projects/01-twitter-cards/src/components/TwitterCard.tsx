@@ -3,11 +3,11 @@ import { useState, ReactNode } from "react";
 type Props = {
     username: string;
     children: ReactNode;
-    isFollowing?: boolean;
+    initialIsFollowing?: boolean;
 }
 
-export function TwitterCard({ username, children } : Props) {
-    const [isFollowing, setIsFollowing] = useState(false);
+export function TwitterCard({ username, children, initialIsFollowing } : Props) {
+    const [isFollowing, setIsFollowing] = useState(initialIsFollowing);
     const textButton = isFollowing ? "Siguiendo" : "Seguir";
     const buttonClassName = isFollowing ? "tw-followCard-button is-following" : "tw-followCard-button";
     const handleClick = () => {
